@@ -6,8 +6,9 @@
 //
 
 import Foundation
-import Alamofire
 import SwiftyJSON
+import Alamofire
+
 
 
 // MARK: -  Saatlik tahminler
@@ -31,6 +32,7 @@ class HourlyForeCast {
         return _temp
     }
     
+    
     var weatherIcon:String {
         if _weatherIcon == nil {
             _weatherIcon = ""
@@ -39,27 +41,45 @@ class HourlyForeCast {
     }
     
     
-    func downloadDailyForecastWeather(){
+    init(weatherDictionary:Dictionary<String,AnyObject>){
         
-        let dailyApi = "https://api.weatherbit.io/v2.0/forecast/minutely?city=Raleigh,NC&key=3e6ec5b90b474a01bf4694f06f7c0f8a&units=I"
+        let json = JSON(weatherDictionary)
+        self._temp = json["temp"].double
+        self._date = currentDateFromUnix(unixDate: json["ts"].double)
+        self._weatherIcon = json["weather"]["icon"].stringValue
+        
+    }
     
-        let request = AF.request(dailyApi)
-        request.responseJSON { response in
+   
+    
+    class func downloadHourlyForecastWeather(completion: @escaping (_ hourlyForecast: [HourlyForeCast]) -> Void){
+        
+        let hourlyApi = "https://api.weatherbit.io/v2.0/forecast/minutely?city=Raleigh,NC&key=3e6ec5b90b474a01bf4694f06f7c0f8a&units=I"
+
+        AF.request(hourlyApi).responseJSON { response in
             
-            do {
-                //let json = try JSON(response)
-                let result = response.result
-               // guard let daily = response.value else {return}
+            var forecastArray: [HourlyForeCast] = []
+            
+            switch response.result {
+            case .success(let value):
+                
+                if let dictionary = response.value as? Dictionary<String,AnyObject> {
+                    if let list = dictionary["data"] as? [Dictionary<String,AnyObject>] {
+                        for item in list {
+                                let forecast = HourlyForeCast(weatherDictionary: item)
+                                forecastArray.append(forecast)
+                        }
+                        completion(forecastArray)
+                    }
+                }
 
-                print("Veri:\(result)")
+            case .failure(let error):
+                print(error)
+            
 
-            }catch {
-                print(error.localizedDescription)
             }
             
-            
         }
-        
     }
     
 }
