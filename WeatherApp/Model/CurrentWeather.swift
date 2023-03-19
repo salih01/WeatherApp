@@ -108,7 +108,7 @@ class CurrentWeather {
         return _visibility
     }
 
-    
+
     
     
 
