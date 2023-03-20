@@ -86,7 +86,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="JS9-rp-fZU"/>
                                     </constraints>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zce-FZ-sJ9">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zce-FZ-sJ9">
                                         <size key="itemSize" width="80" height="100"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -99,7 +99,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="80" id="cVv-7x-RNB"/>
                                     </constraints>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OeC-Ba-jNF">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OeC-Ba-jNF">
                                         <size key="itemSize" width="80" height="80"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>

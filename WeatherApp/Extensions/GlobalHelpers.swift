@@ -17,7 +17,7 @@ func currentDateFromUnix(unixDate:Double?) -> Date? {
         return Date()
     }
 }
-
+// Stringten image e dönüştürmemizi sağlayan extension
 func getWeatherIconFor(_ type:String) -> UIImage? {
     return UIImage(named: type)
 }
