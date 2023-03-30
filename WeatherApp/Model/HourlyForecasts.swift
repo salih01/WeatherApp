@@ -54,7 +54,7 @@ class HourlyForeCast {
     
     class func downloadHourlyForecastWeather(completion: @escaping (_ hourlyForecast: [HourlyForeCast]) -> Void){
         
-        let hourlyApi = "https://api.weatherbit.io/v2.0/forecast/minutely?city=Raleigh,NC&key=3e6ec5b90b474a01bf4694f06f7c0f8a&units=I"
+        let hourlyApi = "https://api.weatherbit.io/v2.0/forecast/hourly?city=Raleigh,NC&key=3e6ec5b90b474a01bf4694f06f7c0f8a&units=I"
 
         AF.request(hourlyApi).responseJSON { response in
             

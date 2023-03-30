@@ -115,7 +115,7 @@ class CurrentWeather {
     
     func getCurrentWeather(completion: @escaping(_ success: Bool) -> Void) {
         
-        let currentApi = "https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=3e6ec5b90b474a01bf4694f06f7c0f8a&include=minutely"
+        let currentApi = "https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=3e6ec5b90b474a01bf4694f06f7c0f8a&include=hourly"
         let request = AF.request(currentApi)
         
         request.responseJSON { data in

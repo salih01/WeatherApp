@@ -74,11 +74,11 @@
                         <constraint firstItem="9zI-Gy-PY8" firstAttribute="top" secondItem="O6M-dH-8LV" secondAttribute="bottom" constant="55" id="uxl-th-Dnq"/>
                     </constraints>
                 </view>
-                <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KBA-mw-YAe">
+                <scrollView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" canCancelContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBA-mw-YAe">
                     <rect key="frame" x="0.0" y="302" width="393" height="672"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMY-8W-9kV">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="547"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="672"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Ofc-BG-ixm">
                                     <rect key="frame" x="0.0" y="8" width="393" height="100"/>
@@ -95,7 +95,6 @@
                                 </collectionView>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gqo-iC-UdD">
                                     <rect key="frame" x="0.0" y="116" width="393" height="80"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="80" id="cVv-7x-RNB"/>
                                     </constraints>
@@ -106,7 +105,7 @@
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                 </collectionView>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EUM-D6-ZdI">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="EUM-D6-ZdI">
                                     <rect key="frame" x="0.0" y="204" width="393" height="360"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
@@ -123,7 +122,6 @@
                                 <constraint firstItem="Ofc-BG-ixm" firstAttribute="leading" secondItem="rMY-8W-9kV" secondAttribute="leading" id="ed4-ad-joD"/>
                                 <constraint firstItem="EUM-D6-ZdI" firstAttribute="leading" secondItem="rMY-8W-9kV" secondAttribute="leading" id="kQD-tG-xhL"/>
                                 <constraint firstItem="EUM-D6-ZdI" firstAttribute="top" secondItem="gqo-iC-UdD" secondAttribute="bottom" constant="8" symbolic="YES" id="tAI-Lg-4Nj"/>
-                                <constraint firstAttribute="height" constant="547" id="tb1-dC-dsQ"/>
                                 <constraint firstAttribute="trailing" secondItem="Ofc-BG-ixm" secondAttribute="trailing" id="xTt-pK-qvi"/>
                                 <constraint firstAttribute="trailing" secondItem="EUM-D6-ZdI" secondAttribute="trailing" id="zga-Lw-pgo"/>
                             </constraints>
@@ -131,11 +129,11 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="rMY-8W-9kV" firstAttribute="bottom" secondItem="PbE-F3-pM6" secondAttribute="bottom" id="2dh-si-LRO"/>
                         <constraint firstItem="rMY-8W-9kV" firstAttribute="top" secondItem="PbE-F3-pM6" secondAttribute="top" id="E9v-oN-AwC"/>
-                        <constraint firstItem="rMY-8W-9kV" firstAttribute="height" secondItem="KBA-mw-YAe" secondAttribute="height" priority="250" id="Fzm-j5-rNM"/>
                         <constraint firstItem="rMY-8W-9kV" firstAttribute="trailing" secondItem="PbE-F3-pM6" secondAttribute="trailing" id="P1U-Li-5Yo"/>
-                        <constraint firstItem="rMY-8W-9kV" firstAttribute="width" secondItem="KBA-mw-YAe" secondAttribute="width" id="Xbh-Tw-Nrj"/>
                         <constraint firstItem="rMY-8W-9kV" firstAttribute="leading" secondItem="PbE-F3-pM6" secondAttribute="leading" id="i8k-EC-d22"/>
+                        <constraint firstItem="PbE-F3-pM6" firstAttribute="bottom" secondItem="rMY-8W-9kV" secondAttribute="bottom" id="lNq-9G-khd"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="toe-th-NMP"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="PbE-F3-pM6"/>

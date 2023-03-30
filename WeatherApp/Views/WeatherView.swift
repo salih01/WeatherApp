@@ -71,14 +71,16 @@ class WeatherView: UIView{
     }
     
     private func setupInfoCollectionView(){
-        hourlyCollectionView.register(UINib(nibName: "InfoWeatherCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
-        hourlyCollectionView.dataSource = self
+        InfoCollectionView.register(UINib(nibName: "InfoWeatherCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "Cell")
+        InfoCollectionView.dataSource = self
        
         
     }
     
     func refreshData(){
         setupCurrentWeather()
+        setupWeatherInfo()
+        InfoCollectionView.reloadData()
     }
     private func setupCurrentWeather(){
         
@@ -86,6 +88,21 @@ class WeatherView: UIView{
         dateLabel.text     = "Today,\(currentWeather.date.shortDate())"
         tempLabel.text     = "\(currentWeather.currentTemp)"
         weatherLabel.text  = currentWeather.weatherType
+    }
+    
+    private func setupWeatherInfo(){
+        let windInfo = WeatherInfo(InfoText: "\(currentWeather.windSpeed)", nameText: nil, image: getWeatherIconFor("wind"))
+        let humidity = WeatherInfo(InfoText: "\(currentWeather.humidity)", nameText: nil,image: getWeatherIconFor("humidity"))
+        let pressureInfo = WeatherInfo(InfoText: "\(currentWeather.pressure)", nameText: nil,image: getWeatherIconFor("pressure"))
+        let visibilityInfo = WeatherInfo(InfoText: "\(currentWeather.visibility)", nameText: nil,image: getWeatherIconFor("visibility"))
+        let feelsLike = WeatherInfo(InfoText: "\(currentWeather.feelsLike)", nameText: nil,image: getWeatherIconFor("feelsLike"))
+        let uvInfo = WeatherInfo(InfoText: "\(currentWeather.uv)", nameText: "UV Index",image:nil)
+        let sunriseInfo = WeatherInfo(InfoText: "\(currentWeather.sunrise)", nameText: nil,image:getWeatherIconFor("sunrise"))
+
+        
+
+        
+        weatherInfoData = [windInfo,humidity,pressureInfo,feelsLike,visibilityInfo,uvInfo]
     }
     
 }

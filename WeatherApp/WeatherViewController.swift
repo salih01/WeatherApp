@@ -25,14 +25,44 @@ class WeatherViewController: UIViewController {
         weatherView.frame = CGRect(x: 0, y: 0, width: scrollView.bounds.width, height: scrollView.bounds.height)
         scrollView.addSubview(weatherView)
         
+        getCurrentWeather(weatherView: weatherView)
+        getHourlyWeather(weatherView: weatherView)
+        getWeeklyWeather(weatherView: weatherView)
+         
+       
+    }
+    
+    
+    private func getCurrentWeather(weatherView:WeatherView){
+        
         weatherView.currentWeather = CurrentWeather()
         weatherView.currentWeather.getCurrentWeather { success in
             
             weatherView.refreshData()
-            
         }
-         
-       
+        
     }
+    
+    private func getWeeklyWeather(weatherView:WeatherView){
+        
+        WeeklyWeatherForecast.downloadWeeklyWeatherForecast { weatherForecast in
+            
+            weatherView.weeklyWeatherForecastData = weatherForecast
+            weatherView.tableView.reloadData()
+        }
+        
+    }
+    
+    private func getHourlyWeather(weatherView:WeatherView){
+        
+        HourlyForeCast.downloadHourlyForecastWeather { hourlyForecast in
+            weatherView.dailyWeatherForecastData = hourlyForecast
+            weatherView.hourlyCollectionView.reloadData()
+        }
+        
+    }
+    
+    
+    
     
 }
